@@ -1,0 +1,31 @@
+﻿@model ABCCC.Models.Transaction
+
+@{
+    ViewData["Title"] = "Transaction Bookings";
+}
+<h2>Transaction Bookings</h2>
+
+<h3>Transaction Id: @Model.TransactionId</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Location</th>
+            <th>Time</th>
+            <th>Number of Seats</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model.Bookings)
+        {
+            <tr>
+                <td>@booking.Cineplex.Location</td>
+                <td>@booking.Day @booking.Hour:00 @booking.Period</td>
+                <td>
+                    @{var total = booking.ConcessionSeats + booking.AdultSeats;}
+                    @total
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,74 @@
+@using ABCCC.Models
+@model ABCCC.Data.MoviesViewModel
+
+@{
+    ViewData["Title"] = "Movies";
+}
+
+<h2>Movies</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Movie
+            </th>
+            <th>
+                Description
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Movies)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShortDescription)
+        </td>
+        <td>
+            <a asp-action="Details" asp-route-id="@item.MovieId">View Movie</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>
+
+<h3>Movies Coming Soon</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Movie
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Release Date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.MoviesComingSoon)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShortDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem =>  item.ReleaseDate)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.MovieId">View Movie</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

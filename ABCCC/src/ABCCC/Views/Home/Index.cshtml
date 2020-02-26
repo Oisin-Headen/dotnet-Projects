@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="~/images/cinema.jpg" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    View our theaters spread across Melbourne
+                    <a class="btn btn-default" asp-area="" asp-controller="Cineplexes" asp-action="Index">
+                        See More
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/projector.png" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    View our wide range of Movies being displayed in Cineplexes near you
+                    <a class="btn btn-default" asp-area="" asp-controller="Movies" asp-action="Index">
+                        See More
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/curtain.jpg" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    Have an event you want to schedule? View more or make an Enquiry
+                    <a class="btn btn-default" asp-area="" asp-controller="Events" asp-action="Index">
+                        See More
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<h3>ABC Cineplex Corp.</h3>
+<p>
+    The ABCCC is a company devoted to delivering the highest quality cinematic experience. We have excellent customer service, great snacks, and a wide variety of epic movies.
+    If you are looking to host a corporate event, just send us an enquiry.
+</p>
+
+<h4>Fast Booking</h4>
+<p>Follow the steps to quickly book a movie</p>
+<form asp-controller="Sessions" asp-action="Book" method="get" class="form-horizontal">
+    <div class="form-group" id="CineplexSelector">
+        <label class="col-md-2 control-label">Cineplex</label>
+        <div class="col-md-10">
+            <select name="cineplexId" class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group hidden" id="MovieSelector">
+        <label class="col-md-2 control-label">Movie</label>
+        <div class="col-md-10">
+            <select class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group hidden" id="DaySelector">
+        <label class="col-md-2 control-label">Day and Time</label>
+        <div class="col-md-10">
+            <select name="day" class="form-control"></select>
+        </div>
+    </div>
+    <input type="hidden" name="hour" value="-1" id="Hour" />
+    <input type="hidden" name="period" value="-1" id="Period" />
+    <div class="form-group hidden" id="FastBookSubmit">
+        <label class="col-md-2 control-label"></label>
+        <div class="col-md-10"><button type="submit">Choose Seats</button></div>
+    </div>
+</form>

@@ -1,0 +1,80 @@
+
+@model IEnumerable<ABCCC.Models.CineplexMovie>
+
+@{
+    ViewData["Title"] = "Sessions";
+}
+
+<h2>Sessions</h2>
+
+<form asp-action="Index" method="get">
+    <p>Filter by Cineplex:</p>
+    <select name="CineplexId" class="form-control" 
+            asp-items="@(new SelectList(ViewData["Cineplexes"] as IEnumerable<ABCCC.Models.Cineplex>,"CineplexId", "Location"))">
+        <option value="-1">--Select--</option>
+    </select>
+    <br />
+    <p>Filter by Movie:</p>
+    <select name="MovieId" class="form-control" 
+            asp-items="@(new SelectList(ViewData["Movies"] as IEnumerable<ABCCC.Models.Movie>,"MovieId", "Title"))">
+        <option value="-1">--Select--</option>
+    </select>
+    <br />
+    <button type="submit">Filter</button>
+</form>
+<br />
+<p>Here is our selection:</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Location
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Day
+            </th>
+            <th>
+                Time
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var cineplexMovie in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => cineplexMovie.Cineplex.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => cineplexMovie.Movie.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => cineplexMovie.Movie.ShortDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => cineplexMovie.Day)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => cineplexMovie.Hour):00 @cineplexMovie.Period
+            </td>
+            <td>
+                <a asp-action="Book" asp-route-cineplexId="@cineplexMovie.CineplexId" 
+                   asp-route-day="@cineplexMovie.Day"
+                   asp-route-hour="@cineplexMovie.Hour"
+                   asp-route-period="@cineplexMovie.Period">Add to Cart</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,70 @@
+﻿@model ABCCC.Models.CineplexMovie
+
+@{
+    ViewData["Title"] = "Book";
+}
+<h2>Book</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Movie</th>
+            <th>Location</th>
+            <th>Day</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Movie.Title</td>
+            <td>@Model.Cineplex.Location</td>
+            <td>@Model.Day</td>
+            <td>@Model.Hour:00 @Model.Period</td>
+        </tr>
+    </tbody>
+</table>
+@if (Model.AvailableSeats > 1)
+{
+<p>There are @Model.AvailableSeats seats available</p>
+}
+else if (Model.AvailableSeats == 1)
+{
+    <p>Hurry! Only 1 seat left!</p>
+}
+
+@if (Model.AvailableSeats > 0)
+{
+<form asp-action="AddToCart">
+    <input type="hidden" value="@Model.CineplexId" name="CineplexId" />
+    <input type="hidden" value="@Model.Day" name="Day"/>
+    <input type="hidden" value="@Model.Hour" name="Hour"/>
+    <input type="hidden" value="@Model.Period" name="Period"/>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Price</th>
+                <th>Number of seats to book:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Adult</td>
+                <td>$45.00</td>
+                <td><input type="number" name="AdultSeats"/></td>
+            </tr>
+            <tr>
+                <td>Concession</td>
+                <td>$20.00</td>
+                <td><input type="number" name="ConcessionSeats" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="submit">Book Seats</button>
+</form>
+}
+else
+{
+    <p>Sorry, there are no seats left.</p>
+}
+

@@ -1,0 +1,21 @@
+﻿{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "emitEntryPoint": true
+  },
+  "dependencies": {
+    "Microsoft.NETCore.App": "1.1.2",
+    "Newtonsoft.Json": "10.0.2"
+  },
+  "runtimes": {
+    "win10-x64": "",
+    "win81-x64": "",
+    "win8-x64": "",
+    "win7-x64": ""
+  },
+  "frameworks": {
+    "netcoreapp1.1": {
+      "imports": "dnxcore50"
+    }
+  }
+}

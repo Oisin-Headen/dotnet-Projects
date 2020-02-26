@@ -1,0 +1,51 @@
+﻿@model ABCCC.Data.CartViewModel
+@{ 
+    ViewData["Title"] = "Cart";
+}
+<p>A maximum of five seats can be booked through this website</p>
+@if (Model.Items.Count > 0)
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th>Movie</th>
+            <th>Location</th>
+            <th>Day</th>
+            <th>Time</th>
+            <th>Number of Adult Seats</th>
+            <th>Number of Concession Seats</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.CineplexMovie.Movie.Title</td>
+                <td>@item.CineplexMovie.Cineplex.Location</td>
+                <td>@item.CineplexMovie.Day</td>
+                <td>@item.CineplexMovie.Hour:00 @item.CineplexMovie.Period</td>
+                <td>@item.AdultSeats</td>
+                <td>@item.ConcessionSeats</td>
+                <td>
+                    <form asp-action="RemoveFromCart">
+                        <input type="hidden" value="@item.CineplexMovie.Cineplex.CineplexId" name="CineplexId" />
+                        <input type="hidden" value="@item.CineplexMovie.Movie.MovieId" name="MovieId" />
+                        <input type="hidden" value="@item.CineplexMovie.Day" name="Day" />
+                        <input type="hidden" value="@item.CineplexMovie.Hour" name="Hour" />
+                        <input type="hidden" value="@item.CineplexMovie.Period" name="Period" />
+                        <button type="submit">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>Price: $@Model.Price.00</p>
+
+<a asp-action="Checkout" class="btn btn-default">Checkout</a>
+}
+else
+{
+    <p>There are no items in your cart.</p>
+}

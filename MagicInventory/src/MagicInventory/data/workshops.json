@@ -1,0 +1,107 @@
+﻿{
+  "1":{
+    "store": "CBD",
+    "Id": "1",
+    "name": "Beginners Workshop (Morning)",
+    "date": "04/09/2017",
+    "seatsLeft": "20"
+  },
+  "2":{
+    "store": "CBD",
+    "Id": "2",
+    "name": "Beginners Workshop (Afternoon)",
+    "date": "04/09/2017",
+    "seatsLeft": "20"
+  },
+  "3":{
+    "store": "CBD",
+    "Id": "3",
+    "name": "Advanced Workshop (Afternoon)",
+    "date": "04/09/2017",
+    "seatsLeft": "20"
+  },
+  "4":{
+    "store": "North",
+    "Id": "4",
+    "name": "Beginners Workshop (Morning)",
+    "date": "04/09/2017",
+    "seatsLeft": "15"
+  },
+  "5":{
+    "store": "North",
+    "Id": "5",
+    "name": "Beginners Workshop (Afternoon)",
+    "date": "04/09/2017",
+    "seatsLeft": "15"
+  },
+  "6":{
+    "store": "North",
+    "Id": "6",
+    "name": "Advanced Workshop (Afternoon)",
+    "date": "04/09/2017",
+    "seatsLeft": "15"
+  },
+  "7":{
+    "store": "East",
+    "Id": "7",
+    "name": "Beginners Workshop (Morning)",
+    "date": "04/09/2017",
+    "seatsLeft": "10"
+  },
+  "8":{
+    "store": "East",
+    "Id": "8",
+    "name": "Beginners Workshop (Afternoon)",
+    "date": "04/09/2017",
+    "seatsLeft": "10"
+  },
+  "9":{
+    "store": "East",
+    "Id": "9",
+    "name": "Advanced Workshop (Afternoon)",
+    "date": "04/09/2017",
+    "seatsLeft": "10"
+  },
+  "10":{
+    "store": "West",
+    "Id": "10",
+    "name": "Beginners Workshop (Morning)",
+    "date": "04/09/2017",
+    "seatsLeft": "25"
+  },
+  "11":{
+    "store": "West",
+    "Id": "11",
+    "name": "Beginners Workshop (Afternoon)",
+    "date": "04/09/2017",
+    "seatsLeft": "25"
+  },
+  "12":{
+    "store": "West",
+    "Id": "12",
+    "name": "Advanced Workshop (Afternoon)",
+    "date": "04/09/2017",
+    "seatsLeft": "25"
+  },
+  "13":{
+    "store": "South",
+    "Id": "13",
+    "name": "Beginners Workshop (Morning)",
+    "date": "04/09/2017",
+    "seatsLeft": "10"
+  },
+  "14":{
+    "store": "South",
+    "Id": "14",
+    "name": "Beginners Workshop (Afternoon)",
+    "date": "04/09/2017",
+    "seatsLeft": "10"
+  },
+  "15":{
+    "store": "South",
+    "Id": "15",
+    "name": "Advanced Workshop (Afternoon)",
+    "date": "04/09/2017",
+    "seatsLeft": "10"
+  }
+}
